@@ -1,0 +1,57 @@
+<ion-content>
+<div class="login">
+  <h1 class="login__title">
+    Gardener
+  </h1>
+  <h5 class="login__subtitle">
+    Faça sol ou faça chuva, cultive no conforto do seu lar.
+  </h5>
+  <div class="menu">
+    <h3 class="menu__title">
+        Seja bem-vindo ao seu<br>
+        <strong>mais novo Cultivo Indoor!</strong>
+    </h3>
+    <div *ngIf="!show_login">
+      <button (click)="show_login = true" class="btn-primary">Entrar</button>
+      <button class="btn-secondary">Cadastrar</button>
+    </div>
+    <div *ngIf="show_login">
+      <form>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-margin-bottom" size="12">
+              <div class="input-icon">
+                <ion-icon name="at"></ion-icon>
+                <ion-input type="email" placeholder="email@dominio.com"></ion-input>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ion-margin-bottom" size="12">
+              <div class="input-icon">
+                <ion-icon name="lock"></ion-icon>
+                <ion-input type="password" placeholder="••••••••••••••••"></ion-input>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row align-items-center>
+            <ion-col size="8">
+              <a href="">Esqueceu a senha?</a>
+            </ion-col>
+            <ion-col size="4" class="ion-text-end">
+              <button (click)="show_login = true" class="btn-primary btn-primary--small"><ion-icon name="arrow-round-forward"></ion-icon></button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <p>Ainda não tem conta?</p>
+              <a href="">Cadastre-se</a>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </div>
+    <hr class="menu_bar">
+  </div>
+</div>
+</ion-content>

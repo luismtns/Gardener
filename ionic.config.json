@@ -1,5 +1,8 @@
 {
   "name": "Gardener",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
   "type": "angular"
 }

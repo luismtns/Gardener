@@ -1,0 +1,58 @@
+%reset-btn{
+  
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+.btn-primary{
+  @extend %reset-btn;
+  letter-spacing: 1px;
+  font: var(--ion-font-family), sans-serif;
+  background: rgb(0,175,83);
+  background: linear-gradient(150deg, rgba(0,175,83,1) 25%, rgba(74,240,153,1) 100%);
+  color: #ffffff;
+  font-weight: bold;
+  padding: 12px 15px;
+  border-radius: 4px;
+  transition: 0.4s ease-out;
+  &:hover{
+    background: rgb(73,217,104);
+    background: linear-gradient(150deg, rgba(73,217,104,1) 0%, rgba(124,253,159,1) 100%);
+  }
+  &--small{
+    padding: 3px 5px;
+  }
+}
+.btn-secondary{
+  @extend %reset-btn;
+  letter-spacing: 1px;
+  font: var(--ion-font-family), sans-serif;
+  background: transparent;
+  color: var(--ion-color-primary-contrast);
+  font-weight: bold;
+  padding: 12px 15px;
+  transition: 0.4s ease-out;
+  border-bottom: 1px solid var(--ion-color-primary-tint);
+  &:hover{
+    border-bottom-color: var(--ion-color-primary-contrast);
+    color:  var(--ion-color-primary);
+  }
+}
