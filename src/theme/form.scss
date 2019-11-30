@@ -9,3 +9,6 @@ ion-input{
   --placeholder-color:#cbdbb9;
   --placeholder-opacity: 0.8;
 }
+ion-input.ion-invalid.ion-touched{
+  outline: 1px solid rgba(255, 0, 0, 0.4);
+}
