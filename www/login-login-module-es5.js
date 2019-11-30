@@ -1,0 +1,209 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["login-login-module"],{
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/login/login.page.html":
+/*!*****************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/login/login.page.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-content>\n<div class=\"login\">\n  <h1 class=\"login__title\">\n    Gardener\n  </h1>\n  <h5 class=\"login__subtitle\">\n    Faça sol ou faça chuva, cultive no conforto do seu lar.\n  </h5>\n  <div class=\"menu\">\n    <h3 class=\"menu__title\">\n        Seja bem-vindo ao seu<br>\n        <strong>mais novo Cultivo Indoor!</strong>\n    </h3>\n    <div *ngIf=\"!show_login&&!show_register\">\n      <button (click)=\"changeLoginRegister('L')\" class=\"btn-primary\">Entrar</button>\n      <button (click)=\"changeLoginRegister('R')\" class=\"btn-secondary\">Cadastrar</button>\n    </div>\n    <div *ngIf=\"show_login\">\n      <form [formGroup]=\"validations_form\" (submit)=\"loginUser(validations_form.value)\">\n        <ion-grid>\n          <ion-row>\n            <ion-col class=\"ion-margin-bottom\" size=\"12\">\n              <div class=\"input-icon\">\n                <ion-icon name=\"at\"></ion-icon>\n                <ion-input type=\"email\" formControlName=\"email\" placeholder=\"email@dominio.com\"></ion-input>\n              </div>\n            </ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col class=\"ion-margin-bottom\" size=\"12\">\n              <div class=\"input-icon\">\n                <ion-icon name=\"lock\"></ion-icon>\n                <ion-input type=\"password\" formControlName=\"password\" placeholder=\"••••••••••••••••\"></ion-input>\n              </div>\n            </ion-col>\n          </ion-row>\n          <ion-row align-items-center>\n            <ion-col size=\"8\">\n              <a href=\"\">Esqueceu a senha?</a>\n            </ion-col>\n            <ion-col size=\"4\" class=\"ion-text-end\">\n              <button type=\"submit\" class=\"btn-primary btn-primary--small\"><ion-icon name=\"arrow-round-forward\"></ion-icon></button>\n            </ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col size=\"12\">\n              <label class=\"error-message\">{{error_message}}</label>\n            </ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col size=\"12\">\n              <p>Ainda não tem conta?</p>\n              <a (click)=\"changeLoginRegister('R')\">Cadastre-se</a>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </form>\n    </div>\n    <div *ngIf=\"show_register\">\n      <form [formGroup]=\"register_form\" (submit)=\"tryRegister(register_form.value)\">\n        <ion-grid>\n          <ion-row>\n            <ion-col class=\"ion-margin-bottom\" size=\"12\">\n              <div class=\"input-icon\">\n                <ion-icon name=\"person\"></ion-icon>\n                <ion-input type=\"text\" formControlName=\"nome\" placeholder=\"Seu nome, por favor!\"></ion-input>\n              </div>\n            </ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col class=\"ion-margin-bottom\" size=\"12\">\n              <div class=\"input-icon\">\n                <ion-icon name=\"phone-portrait\"></ion-icon>\n                <ion-input type=\"tel\" formControlName=\"telefone\" placeholder=\"Insira seu telefone e DDD\"></ion-input>\n              </div>\n            </ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col class=\"ion-margin-bottom\" size=\"12\">\n              <div class=\"input-icon\">\n                <ion-icon name=\"at\"></ion-icon>\n                <ion-input type=\"email\" formControlName=\"email\" placeholder=\"email@dominio.com\"></ion-input>\n              </div>\n            </ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col class=\"ion-margin-bottom\" size=\"12\">\n              <div class=\"input-icon\">\n                <ion-icon name=\"lock\"></ion-icon>\n                <ion-input type=\"password\" formControlName=\"password\" placeholder=\"••••••••••••••••\"></ion-input>\n              </div>\n            </ion-col>\n          </ion-row>\n          <ion-row align-items-center>\n            <ion-col size=\"8\">\n              <a>Esqueceu a senha?</a>\n            </ion-col>\n            <ion-col size=\"4\" class=\"ion-text-end\">\n              <button type=\"submit\" class=\"btn-primary btn-primary--small\"><ion-icon name=\"arrow-round-forward\"></ion-icon></button>\n            </ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col size=\"12\">\n              <p>Já é cadastrado?</p>\n              <a (click)=\"changeLoginRegister('L')\">Entre aqui! :)</a>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </form>\n    </div>\n  </div>\n</div>\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/login/login.module.ts":
+/*!***************************************!*\
+  !*** ./src/app/login/login.module.ts ***!
+  \***************************************/
+/*! exports provided: LoginPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _login_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./login.page */ "./src/app/login/login.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _login_page__WEBPACK_IMPORTED_MODULE_6__["LoginPage"]
+    }
+];
+var LoginPageModule = /** @class */ (function () {
+    function LoginPageModule() {
+    }
+    LoginPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]
+            ],
+            declarations: [_login_page__WEBPACK_IMPORTED_MODULE_6__["LoginPage"]]
+        })
+    ], LoginPageModule);
+    return LoginPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/login/login.page.scss":
+/*!***************************************!*\
+  !*** ./src/app/login/login.page.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".login {\n  display: block;\n  height: 100%;\n  width: 100%;\n  background: var(--ion-color-dark) url(\"/assets/images/background_home.jpg\") no-repeat center top;\n  background-size: cover;\n  position: relative;\n  top: 0;\n  padding: 1em;\n}\n.login__title {\n  font-size: 2em;\n  color: #ffffff;\n  margin: 1em 0 0;\n  font-weight: bold;\n}\n.login__subtitle {\n  font-size: 0.8em;\n  color: #ffffff;\n}\n.menu {\n  position: fixed;\n  bottom: 0;\n  width: 100vw;\n  min-height: 30vh;\n  margin: 0 -1em;\n  background-color: rgba(0, 0, 0, 0.8);\n  border-radius: 2.5em 2.5em 0 0;\n  padding: 0.5em 2em 2em;\n  -webkit-transition: height 0.6s ease-in;\n  transition: height 0.6s ease-in;\n}\n.menu__title {\n  font-size: 1em;\n  text-align: left;\n  color: #ffffff;\n  margin-bottom: 1em;\n}\n.menu__title strong {\n  font-size: 1.2em;\n}\n.menu .btn-primary {\n  margin-right: 1em;\n}\n.menu .input-icon {\n  display: -webkit-box;\n  display: flex;\n  justify-content: space-around;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.menu .input-icon ion-icon {\n  color: #FFFFFF;\n  background-color: rgba(255, 255, 255, 0.1);\n  padding: 1.1em;\n  font-size: 1em;\n}\n.menu .btn-primary--small {\n  margin-right: 0;\n}\n.menu .btn-primary--small ion-icon {\n  font-size: 2em;\n}\np {\n  color: var(--ion-color-light);\n  margin: 0 0 1em;\n  font-size: 0.8em;\n}\na {\n  color: var(--ion-color-light);\n  margin: 0 0 1em;\n  font-size: 0.8em;\n  text-decoration: underline;\n}\na:hover {\n  color: var(--ion-color-light-shade);\n}\n.error-message {\n  color: var(--ion-color-danger);\n  font-size: 0.8em;\n}\nion-input {\n  --background: rgba(255,255,255,0.1);\n  --color: #FFFFFF;\n  --padding-bottom: 1em;\n  --padding-end: 1em;\n  --padding-start: 1em;\n  --padding-top: 1em;\n  --placeholder-color:#cbdbb9;\n  --placeholder-opacity: 0.8;\n}\nion-input.ion-invalid.ion-touched {\n  outline: 1px solid rgba(255, 0, 0, 0.4);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vQzpcXFVzZXJzXFxMdWlzXFxEb2N1bWVudHNcXEdhcmRlbmVyX0FwcFxcR2FyZGVuZXIvc3JjXFxhcHBcXGxvZ2luXFxsb2dpbi5wYWdlLnNjc3MiLCJzcmMvYXBwL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyIsInNyYy9hcHAvbG9naW4vQzpcXFVzZXJzXFxMdWlzXFxEb2N1bWVudHNcXEdhcmRlbmVyX0FwcFxcR2FyZGVuZXIvc3JjXFx0aGVtZVxcZm9ybS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsY0FBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0EsZ0dBQUE7RUFDQSxzQkFBQTtFQUNBLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLFlBQUE7QUNDRjtBREFFO0VBQ0UsY0FBQTtFQUNBLGNBQUE7RUFDQSxlQUFBO0VBQ0EsaUJBQUE7QUNFSjtBREFFO0VBQ0UsZ0JBQUE7RUFDQSxjQUFBO0FDRUo7QURDQTtFQUNFLGVBQUE7RUFDQSxTQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0VBQ0EsY0FBQTtFQUNBLG9DQUFBO0VBQ0EsOEJBQUE7RUFDQSxzQkFBQTtFQUNBLHVDQUFBO0VBQUEsK0JBQUE7QUNFRjtBRERFO0VBQ0UsY0FBQTtFQUNBLGdCQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0FDR0o7QURGSTtFQUNFLGdCQUFBO0FDSU47QURERTtFQUNFLGlCQUFBO0FDR0o7QURERTtFQUNFLG9CQUFBO0VBQUEsYUFBQTtFQUNBLDZCQUFBO0VBQ0EseUJBQUE7VUFBQSxtQkFBQTtBQ0dKO0FERkk7RUFDRSxjQUFBO0VBQ0EsMENBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtBQ0lOO0FEREU7RUFDRSxlQUFBO0FDR0o7QURGSTtFQUNFLGNBQUE7QUNJTjtBREFBO0VBQ0UsNkJBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7QUNHRjtBRERBO0VBQ0UsNkJBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSwwQkFBQTtBQ0lGO0FESEU7RUFDRSxtQ0FBQTtBQ0tKO0FEREE7RUFDRSw4QkFBQTtFQUNBLGdCQUFBO0FDSUY7QUNoRkE7RUFDRSxtQ0FBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUFDQSxrQkFBQTtFQUNBLG9CQUFBO0VBQ0Esa0JBQUE7RUFDQSwyQkFBQTtFQUNBLDBCQUFBO0FEbUZGO0FDakZBO0VBQ0UsdUNBQUE7QURvRkYiLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubG9naW57XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGJhY2tncm91bmQ6IHZhcigtLWlvbi1jb2xvci1kYXJrKSB1cmwoJy9hc3NldHMvaW1hZ2VzL2JhY2tncm91bmRfaG9tZS5qcGcnKSBuby1yZXBlYXQgY2VudGVyIHRvcDtcclxuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICB0b3A6IDA7XHJcbiAgcGFkZGluZzogMWVtO1xyXG4gICZfX3RpdGxle1xyXG4gICAgZm9udC1zaXplOiAyZW07XHJcbiAgICBjb2xvcjogI2ZmZmZmZjtcclxuICAgIG1hcmdpbjogMWVtIDAgMDtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIH1cclxuICAmX19zdWJ0aXRsZXtcclxuICAgIGZvbnQtc2l6ZTogMC44ZW07XHJcbiAgICBjb2xvcjogI2ZmZmZmZjtcclxuICB9XHJcbn1cclxuLm1lbnV7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIGJvdHRvbTogMDtcclxuICB3aWR0aDogMTAwdnc7XHJcbiAgbWluLWhlaWdodDogMzB2aDtcclxuICBtYXJnaW46IDAgLTFlbTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuOCk7XHJcbiAgYm9yZGVyLXJhZGl1czogMi41ZW0gMi41ZW0gMCAwO1xyXG4gIHBhZGRpbmc6IDAuNWVtIDJlbSAyZW07XHJcbiAgdHJhbnNpdGlvbjogaGVpZ2h0IDAuNnMgZWFzZS1pbjtcclxuICAmX190aXRsZXtcclxuICAgIGZvbnQtc2l6ZTogMWVtO1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxuICAgIGNvbG9yOiAjZmZmZmZmO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMWVtO1xyXG4gICAgc3Ryb25ne1xyXG4gICAgICBmb250LXNpemU6IDEuMmVtO1xyXG4gICAgfVxyXG4gIH1cclxuICAuYnRuLXByaW1hcnl7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDFlbTtcclxuICB9XHJcbiAgLmlucHV0LWljb257XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAganVzdGlmeS1jb250ZW50OnNwYWNlLWFyb3VuZDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBpb24taWNvbntcclxuICAgICAgY29sb3I6ICNGRkZGRkY7XHJcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LDI1NSwyNTUsMC4xKTtcclxuICAgICAgcGFkZGluZzogMS4xZW07XHJcbiAgICAgIGZvbnQtc2l6ZTogMWVtO1xyXG4gICAgfVxyXG4gIH1cclxuICAuYnRuLXByaW1hcnktLXNtYWxse1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAwO1xyXG4gICAgaW9uLWljb257XHJcbiAgICAgIGZvbnQtc2l6ZTogMmVtO1xyXG4gICAgfVxyXG4gIH1cclxufVxyXG5we1xyXG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItbGlnaHQpO1xyXG4gIG1hcmdpbjogMCAwIDFlbTtcclxuICBmb250LXNpemU6MC44ZW07XHJcbn1cclxuYXtcclxuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLWxpZ2h0KTtcclxuICBtYXJnaW46IDAgMCAxZW07XHJcbiAgZm9udC1zaXplOjAuOGVtO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xyXG4gICY6aG92ZXJ7XHJcbiAgICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLWxpZ2h0LXNoYWRlKTtcclxuICB9XHJcbn1cclxuXHJcbi5lcnJvci1tZXNzYWdle1xyXG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItZGFuZ2VyKTtcclxuICBmb250LXNpemU6IDAuOGVtO1xyXG5cclxufVxyXG5AaW1wb3J0ICcuLy4uLy4uL3RoZW1lL2Zvcm0nOyIsIi5sb2dpbiB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBoZWlnaHQ6IDEwMCU7XG4gIHdpZHRoOiAxMDAlO1xuICBiYWNrZ3JvdW5kOiB2YXIoLS1pb24tY29sb3ItZGFyaykgdXJsKFwiL2Fzc2V0cy9pbWFnZXMvYmFja2dyb3VuZF9ob21lLmpwZ1wiKSBuby1yZXBlYXQgY2VudGVyIHRvcDtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IDA7XG4gIHBhZGRpbmc6IDFlbTtcbn1cbi5sb2dpbl9fdGl0bGUge1xuICBmb250LXNpemU6IDJlbTtcbiAgY29sb3I6ICNmZmZmZmY7XG4gIG1hcmdpbjogMWVtIDAgMDtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG59XG4ubG9naW5fX3N1YnRpdGxlIHtcbiAgZm9udC1zaXplOiAwLjhlbTtcbiAgY29sb3I6ICNmZmZmZmY7XG59XG5cbi5tZW51IHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBib3R0b206IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgbWluLWhlaWdodDogMzB2aDtcbiAgbWFyZ2luOiAwIC0xZW07XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwgMCwgMCwgMC44KTtcbiAgYm9yZGVyLXJhZGl1czogMi41ZW0gMi41ZW0gMCAwO1xuICBwYWRkaW5nOiAwLjVlbSAyZW0gMmVtO1xuICB0cmFuc2l0aW9uOiBoZWlnaHQgMC42cyBlYXNlLWluO1xufVxuLm1lbnVfX3RpdGxlIHtcbiAgZm9udC1zaXplOiAxZW07XG4gIHRleHQtYWxpZ246IGxlZnQ7XG4gIGNvbG9yOiAjZmZmZmZmO1xuICBtYXJnaW4tYm90dG9tOiAxZW07XG59XG4ubWVudV9fdGl0bGUgc3Ryb25nIHtcbiAgZm9udC1zaXplOiAxLjJlbTtcbn1cbi5tZW51IC5idG4tcHJpbWFyeSB7XG4gIG1hcmdpbi1yaWdodDogMWVtO1xufVxuLm1lbnUgLmlucHV0LWljb24ge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cbi5tZW51IC5pbnB1dC1pY29uIGlvbi1pY29uIHtcbiAgY29sb3I6ICNGRkZGRkY7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xKTtcbiAgcGFkZGluZzogMS4xZW07XG4gIGZvbnQtc2l6ZTogMWVtO1xufVxuLm1lbnUgLmJ0bi1wcmltYXJ5LS1zbWFsbCB7XG4gIG1hcmdpbi1yaWdodDogMDtcbn1cbi5tZW51IC5idG4tcHJpbWFyeS0tc21hbGwgaW9uLWljb24ge1xuICBmb250LXNpemU6IDJlbTtcbn1cblxucCB7XG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItbGlnaHQpO1xuICBtYXJnaW46IDAgMCAxZW07XG4gIGZvbnQtc2l6ZTogMC44ZW07XG59XG5cbmEge1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLWxpZ2h0KTtcbiAgbWFyZ2luOiAwIDAgMWVtO1xuICBmb250LXNpemU6IDAuOGVtO1xuICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcbn1cbmE6aG92ZXIge1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLWxpZ2h0LXNoYWRlKTtcbn1cblxuLmVycm9yLW1lc3NhZ2Uge1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLWRhbmdlcik7XG4gIGZvbnQtc2l6ZTogMC44ZW07XG59XG5cbmlvbi1pbnB1dCB7XG4gIC0tYmFja2dyb3VuZDogcmdiYSgyNTUsMjU1LDI1NSwwLjEpO1xuICAtLWNvbG9yOiAjRkZGRkZGO1xuICAtLXBhZGRpbmctYm90dG9tOiAxZW07XG4gIC0tcGFkZGluZy1lbmQ6IDFlbTtcbiAgLS1wYWRkaW5nLXN0YXJ0OiAxZW07XG4gIC0tcGFkZGluZy10b3A6IDFlbTtcbiAgLS1wbGFjZWhvbGRlci1jb2xvcjojY2JkYmI5O1xuICAtLXBsYWNlaG9sZGVyLW9wYWNpdHk6IDAuODtcbn1cblxuaW9uLWlucHV0Lmlvbi1pbnZhbGlkLmlvbi10b3VjaGVkIHtcbiAgb3V0bGluZTogMXB4IHNvbGlkIHJnYmEoMjU1LCAwLCAwLCAwLjQpO1xufSIsIlxyXG5pb24taW5wdXR7XHJcbiAgLS1iYWNrZ3JvdW5kOiByZ2JhKDI1NSwyNTUsMjU1LDAuMSk7XHJcbiAgLS1jb2xvclx0OiAjRkZGRkZGO1xyXG4gIC0tcGFkZGluZy1ib3R0b206IDFlbTtcclxuICAtLXBhZGRpbmctZW5kOiAxZW07XHJcbiAgLS1wYWRkaW5nLXN0YXJ0OiAxZW07XHJcbiAgLS1wYWRkaW5nLXRvcDogMWVtO1xyXG4gIC0tcGxhY2Vob2xkZXItY29sb3I6I2NiZGJiOTtcclxuICAtLXBsYWNlaG9sZGVyLW9wYWNpdHk6IDAuODtcclxufVxyXG5pb24taW5wdXQuaW9uLWludmFsaWQuaW9uLXRvdWNoZWR7XHJcbiAgb3V0bGluZTogMXB4IHNvbGlkIHJnYmEoMjU1LCAwLCAwLCAwLjQpO1xyXG59XHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/login/login.page.ts":
+/*!*************************************!*\
+  !*** ./src/app/login/login.page.ts ***!
+  \*************************************/
+/*! exports provided: LoginPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPage", function() { return LoginPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _services_firebase_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/firebase.service */ "./src/app/services/firebase.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
+
+
+
+
+var LoginPage = /** @class */ (function () {
+    function LoginPage(navCtrl, authService, formBuilder) {
+        this.navCtrl = navCtrl;
+        this.authService = authService;
+        this.formBuilder = formBuilder;
+        this.show_login = false;
+        this.show_register = false;
+        this.error_message = '';
+        this.validation_messages = {
+            'email': [
+                { type: 'required', message: 'E-mail não pode estar vazio!' },
+                { type: 'email', message: 'Por favor, insira um e-mail válido!' }
+            ],
+            'password': [
+                { type: 'required', message: 'Senha não pode estar vazio!' },
+                { type: 'minlength', message: 'A senha precisa de pelo menos 8 caracteres.' }
+            ]
+        };
+    }
+    LoginPage.prototype.ngOnInit = function () {
+        this.validations_form = this.formBuilder.group({
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].compose([
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].email
+            ])),
+            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].compose([
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(8),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required
+            ])),
+        });
+        this.register_form = this.formBuilder.group({
+            nome: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].compose([
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].email
+            ])),
+            telefone: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].compose([
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(8)
+            ])),
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].compose([
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].email
+            ])),
+            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].compose([
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(8),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required
+            ])),
+        });
+    };
+    LoginPage.prototype.changeLoginRegister = function (login_type) {
+        if (!login_type) {
+            return false;
+        }
+        if (login_type == 'L') {
+            this.show_login = true;
+            this.show_register = false;
+        }
+        else if (login_type == 'R') {
+            this.show_login = false;
+            this.show_register = true;
+        }
+        else {
+            return false;
+        }
+    };
+    LoginPage.prototype.loginUser = function (value) {
+        var _this = this;
+        this.authService.loginUser(value)
+            .then(function (res) {
+            console.log(res);
+            _this.error_message = "";
+            alert('sucesso!');
+        }, function (err) {
+            console.log(err);
+            _this.error_message = err.message;
+        });
+    };
+    LoginPage.prototype.tryRegister = function (value) {
+        var _this = this;
+        this.authService.registerUser(value)
+            .then(function (res) {
+            console.log(res);
+            _this.error_message = "";
+            alert("Your account has been created. Please log in.");
+        }, function (err) {
+            console.log(err);
+            _this.error_message = err.message;
+        });
+    };
+    LoginPage.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _services_firebase_service__WEBPACK_IMPORTED_MODULE_3__["FirebaseService"] },
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
+    ]; };
+    LoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-login',
+            template: __webpack_require__(/*! raw-loader!./login.page.html */ "./node_modules/raw-loader/index.js!./src/app/login/login.page.html"),
+            styles: [__webpack_require__(/*! ./login.page.scss */ "./src/app/login/login.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"],
+            _services_firebase_service__WEBPACK_IMPORTED_MODULE_3__["FirebaseService"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]])
+    ], LoginPage);
+    return LoginPage;
+}());
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=login-login-module-es5.js.map
