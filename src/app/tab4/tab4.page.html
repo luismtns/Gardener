@@ -1,0 +1,42 @@
+<header class="Header">
+    <img src="/assets/images/logo_v1.png" class="img-fluid Header__logo" alt="Logo Gardener">
+    <a (click)="logout()">
+      Sair
+    </a>
+</header>
+<ion-content class="ion-padding">
+  <h3 class="title_internal">
+    <ion-icon name="person"></ion-icon>
+    Perfil de {{user_info?.nome.substring(0,user_info?.nome.indexOf(' '))}}
+  </h3>
+  <form [formGroup]="register_form" (submit)="updateUserForm(register_form.value)">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-margin-bottom" size="12">
+          <div class="ion-input-icon">
+            <ion-icon name="person"></ion-icon>
+            <ion-input type="text" formControlName="nome" placeholder="Seu nome, por favor!"></ion-input>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-margin-bottom" size="12">
+          <div class="ion-input-icon">
+            <ion-icon name="phone-portrait"></ion-icon>
+            <ion-input type="tel" mask="(00)00000-0000" formControlName="telefone" placeholder="Insira seu telefone e DDD"></ion-input>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="12" class="ion-text-end">
+          <button type="submit" class="btn-primary">
+            <ion-spinner *ngIf="spinner" name="crescent" color="primary"></ion-spinner>
+            <ion-template *ngIf="!spinner">
+              Atualizar
+            </ion-template>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

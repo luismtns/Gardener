@@ -1,14 +1,26 @@
-
 ion-input{
   --background: rgba(255,255,255,0.1);
   --color	: #FFFFFF;
-  --padding-bottom: 1em;
-  --padding-end: 1em;
-  --padding-start: 1em;
-  --padding-top: 1em;
-  --placeholder-color:#cbdbb9;
+  --padding-bottom: var(--padding);
+  --padding-end: var(--padding);
+  --padding-start: var(--padding);
+  --padding-top: var(--padding);
+  --placeholder-color:var(--ion-color-primary);
   --placeholder-opacity: 0.8;
 }
 ion-input.ion-invalid.ion-touched{
   outline: 1px solid rgba(255, 0, 0, 0.4);
+}
+.ion-input-icon{
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  box-shadow: rgba(154,154,154,0.25) 0px 0px 70px;
+  padding: var(--padding);
+  ion-icon{
+    color: var(--ion-color-primary-tint);
+    padding: 0.85em;
+    font-size: 1em;
+  }
+  
 }

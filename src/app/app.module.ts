@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -16,6 +16,8 @@ import { FirebaseService } from './services/firebase.service';
 
 firebase.initializeApp(environment.firebase);
 
+import {NgxMaskIonicModule} from 'ngx-mask-ionic'
+
 @NgModule({
   declarations: [
     AppComponent
@@ -25,7 +27,10 @@ firebase.initializeApp(environment.firebase);
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NgxMaskIonicModule.forRoot({
+      'dropSpecialCharacters': true
+    })
   ],
   providers: [
     StatusBar,
@@ -33,6 +38,9 @@ firebase.initializeApp(environment.firebase);
     FirebaseService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule {}

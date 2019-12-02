@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { FirebaseService } from '../services/firebase.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private authService: FirebaseService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -38,8 +40,7 @@ export class LoginPage implements OnInit {
     
     this.register_form = this.formBuilder.group({
       nome: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.email
+        Validators.required
       ])),
       telefone: new FormControl('', Validators.compose([
         Validators.required,
@@ -83,11 +84,13 @@ export class LoginPage implements OnInit {
   }
 
   loginUser(value){
+    if(this.validations_form.invalid){
+      return false
+    }
     this.authService.loginUser(value)
     .then(res => {
-      console.log(res);
       this.error_message = "";
-      alert('sucesso!')
+      this.router.navigate(['/dashboard/tab1']);
     }, err => {
       console.log(err);
       this.error_message = err.message;
@@ -95,6 +98,9 @@ export class LoginPage implements OnInit {
   }
 
   tryRegister(value){
+    if(this.register_form.invalid){
+      return false
+    }
     this.authService.registerUser(value)
      .then(res => {
        console.log(res);

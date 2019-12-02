@@ -1,0 +1,35 @@
+.Header{
+  background: var(--ion-color-dark) url('/assets/images/background_dash.jpg') no-repeat center top;
+  background-size: cover;
+  background-position: 0 40%;
+  padding: var(--padding);
+  margin: var(--padding);
+  border-radius: var(--padding);
+  box-shadow: rgba(46,93,25,0.35) 0px 0px 1em;
+  color: var(--ion-color-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  a{
+    color: var(--ion-color-light);
+    text-decoration: underline;
+    font-size: 1em;
+  }
+  &__logo{
+    max-height: 50px;
+  }
+}
+.img-fluid{
+  max-width: 100%;
+  width: auto;
+}
+.title_internal{
+  font-size: 2em;
+  margin: 0 0 var(--padding);
+  font-weight: bold;
+  color: var(--ion-color-primary);
+  ion-icon{
+    display: inline-block;
+    vertical-align: -0.15em;
+  }
+}
