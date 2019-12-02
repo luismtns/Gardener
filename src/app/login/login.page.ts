@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 import { FirebaseService } from '../services/firebase.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -22,7 +22,8 @@ export class LoginPage implements OnInit {
     private navCtrl: NavController,
     private authService: FirebaseService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    public alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -105,10 +106,22 @@ export class LoginPage implements OnInit {
      .then(res => {
        console.log(res);
        this.error_message = "";
-        alert("Your account has been created. Please log in.");
+        this.successRegisterAlert();
+        this.changeLoginRegister('L')
      }, err => {
        console.log(err);
        this.error_message = err.message;
      })
+  }
+
+  
+  async successRegisterAlert() {
+    const alert = await this.alertController.create({
+      header: 'Cadastrado com sucesso!',
+      message: 'Continue no login com os dados cadastrados.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 }

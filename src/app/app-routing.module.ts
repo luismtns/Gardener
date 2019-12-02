@@ -13,14 +13,19 @@ const routes: Routes = [
     loadChildren: './login/login.module#LoginPageModule' 
   },
   { 
-    path: 'recuperar-senha', 
+    path: 'ladding', 
+    loadChildren: './ladding/ladding.module#LaddingPageModule' 
+  },
+  { 
+    path: 'ladding', 
     loadChildren: './password-recovery/password-recovery.module#PasswordRecoveryPageModule' 
   },
   {
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
-  }
+  },
+  { path: 'ladding', loadChildren: './ladding/ladding.module#LaddingPageModule' }
 ];
 @NgModule({
   imports: [

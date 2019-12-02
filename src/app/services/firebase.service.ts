@@ -17,7 +17,8 @@ export class FirebaseService {
           firebase.database().ref('usuarios').child(res.user.uid).set({
             'nome': value.nome,
             'telefone': value.telefone.replace('(','').replace(')','').replace('-','').substring(2),
-            'ddd': value.telefone.replace('(','').replace(')','').replace('-','').substring(0,2)
+            'ddd': value.telefone.replace('(','').replace(')','').replace('-','').substring(0,2),
+            'ladding': true
           }).then(
             res=>resolve(res),
             error=>reject(error)
@@ -31,11 +32,25 @@ export class FirebaseService {
    updateUser(value){
     return new Promise<any>((resolve, reject) => {
       const uid = firebase.auth().currentUser.uid;
-      console.log(value.telefone)
       firebase.database().ref('usuarios').child(uid).update({
         'nome': value.nome,
         'telefone': value.telefone.replace('(','').replace(')','').replace('-','').substring(2),
         'ddd': value.telefone.replace('(','').replace(')','').replace('-','').substring(0,2)
+      }, error=>{
+        if(error){
+          reject(error)
+        }else{
+          resolve();
+        }
+      })
+    })
+   }
+
+   updateLadding(value){
+    return new Promise<any>((resolve, reject) => {
+      const uid = firebase.auth().currentUser.uid;
+      firebase.database().ref('usuarios').child(uid).update({
+        'ladding': value,
       }, error=>{
         if(error){
           reject(error)

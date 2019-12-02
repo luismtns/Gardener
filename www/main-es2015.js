@@ -8,9 +8,17 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./ladding/ladding.module": [
+		"./src/app/ladding/ladding.module.ts",
+		"ladding-ladding-module"
+	],
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
 		"login-login-module"
+	],
+	"./password-recovery/password-recovery.module": [
+		"./src/app/password-recovery/password-recovery.module.ts",
+		"password-recovery-password-recovery-module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -470,15 +478,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/auth.guard */ "./src/app/services/auth.guard.ts");
+
 
 
 
 const routes = [
     {
-        path: 'user',
-        loadChildren: () => __webpack_require__.e(/*! import() | tabs-tabs-module */ "tabs-tabs-module").then(__webpack_require__.bind(null, /*! ./tabs/tabs.module */ "./src/app/tabs/tabs.module.ts")).then(m => m.TabsPageModule)
+        path: '',
+        loadChildren: () => __webpack_require__.e(/*! import() | tabs-tabs-module */ "tabs-tabs-module").then(__webpack_require__.bind(null, /*! ./tabs/tabs.module */ "./src/app/tabs/tabs.module.ts")).then(m => m.TabsPageModule),
+        canActivate: [_services_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
-    { path: '', loadChildren: './login/login.module#LoginPageModule' }
+    {
+        path: 'login',
+        loadChildren: './login/login.module#LoginPageModule'
+    },
+    {
+        path: 'ladding',
+        loadChildren: './ladding/ladding.module#LaddingPageModule'
+    },
+    {
+        path: 'ladding',
+        loadChildren: './password-recovery/password-recovery.module#PasswordRecoveryPageModule'
+    },
+    {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
+    },
+    { path: 'ladding', loadChildren: './ladding/ladding.module#LaddingPageModule' }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -584,6 +612,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/es2015/index.js");
 /* harmony import */ var _services_firebase_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./services/firebase.service */ "./src/app/services/firebase.service.ts");
+/* harmony import */ var ngx_mask_ionic__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ngx-mask-ionic */ "./node_modules/ngx-mask-ionic/fesm2015/ngx-mask-ionic.js");
 
 
 
@@ -598,6 +627,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 firebase__WEBPACK_IMPORTED_MODULE_7__["initializeApp"](src_environments_environment__WEBPACK_IMPORTED_MODULE_10__["environment"].firebase);
+
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -610,7 +640,10 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
             _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
-            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_11__["AngularFireAuthModule"]
+            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_11__["AngularFireAuthModule"],
+            ngx_mask_ionic__WEBPACK_IMPORTED_MODULE_13__["NgxMaskIonicModule"].forRoot({
+                'dropSpecialCharacters': true
+            })
         ],
         providers: [
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
@@ -618,9 +651,67 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _services_firebase_service__WEBPACK_IMPORTED_MODULE_12__["FirebaseService"],
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]],
+        schemas: [
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]
+        ]
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/auth.guard.ts":
+/*!****************************************!*\
+  !*** ./src/app/services/auth.guard.ts ***!
+  \****************************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/index.esm.js");
+
+
+
+
+
+let AuthGuard = class AuthGuard {
+    constructor(router) {
+        this.router = router;
+    }
+    canActivate(next, state) {
+        return new Promise((resolve, reject) => {
+            firebase_app__WEBPACK_IMPORTED_MODULE_3__["auth"]().onAuthStateChanged((user) => {
+                if (user) {
+                    console.log('User logged in');
+                    resolve(true);
+                }
+                else {
+                    console.log('User is not logged in');
+                    this.router.navigate(['/login']);
+                    resolve(false);
+                }
+            });
+        });
+    }
+};
+AuthGuard.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+], AuthGuard);
 
 
 
@@ -648,7 +739,46 @@ let FirebaseService = class FirebaseService {
     registerUser(value) {
         return new Promise((resolve, reject) => {
             firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().createUserWithEmailAndPassword(value.email, value.password)
-                .then(res => resolve(res), err => reject(err));
+                .then(res => {
+                firebase_app__WEBPACK_IMPORTED_MODULE_2__["database"]().ref('usuarios').child(res.user.uid).set({
+                    'nome': value.nome,
+                    'telefone': value.telefone.replace('(', '').replace(')', '').replace('-', '').substring(2),
+                    'ddd': value.telefone.replace('(', '').replace(')', '').replace('-', '').substring(0, 2),
+                    'ladding': true
+                }).then(res => resolve(res), error => reject(error));
+            }, err => reject(err));
+        });
+    }
+    updateUser(value) {
+        return new Promise((resolve, reject) => {
+            const uid = firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().currentUser.uid;
+            firebase_app__WEBPACK_IMPORTED_MODULE_2__["database"]().ref('usuarios').child(uid).update({
+                'nome': value.nome,
+                'telefone': value.telefone.replace('(', '').replace(')', '').replace('-', '').substring(2),
+                'ddd': value.telefone.replace('(', '').replace(')', '').replace('-', '').substring(0, 2)
+            }, error => {
+                if (error) {
+                    reject(error);
+                }
+                else {
+                    resolve();
+                }
+            });
+        });
+    }
+    updateLadding(value) {
+        return new Promise((resolve, reject) => {
+            const uid = firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().currentUser.uid;
+            firebase_app__WEBPACK_IMPORTED_MODULE_2__["database"]().ref('usuarios').child(uid).update({
+                'ladding': value,
+            }, error => {
+                if (error) {
+                    reject(error);
+                }
+                else {
+                    resolve();
+                }
+            });
         });
     }
     loginUser(value) {
@@ -657,12 +787,17 @@ let FirebaseService = class FirebaseService {
                 .then(res => resolve(res), err => reject(err));
         });
     }
+    resetPassword(value) {
+        return new Promise((resolve, reject) => {
+            firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().sendPasswordResetEmail(value.email)
+                .then(res => resolve(res), err => reject(err));
+        });
+    }
     logoutUser() {
         return new Promise((resolve, reject) => {
             if (firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().currentUser) {
                 firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().signOut()
                     .then(() => {
-                    console.log("LOG Out");
                     resolve();
                 }).catch((error) => {
                     reject();
@@ -671,7 +806,16 @@ let FirebaseService = class FirebaseService {
         });
     }
     userDetails() {
-        return firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().currentUser;
+        return new Promise((resolve, reject) => {
+            const uid = firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().currentUser.uid;
+            if (uid) {
+                firebase_app__WEBPACK_IMPORTED_MODULE_2__["database"]().ref('usuarios').child(uid).once('value').then((snapshot) => {
+                    resolve(snapshot.val());
+                }).catch((error) => {
+                    reject();
+                });
+            }
+        });
     }
 };
 FirebaseService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

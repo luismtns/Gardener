@@ -7,6 +7,9 @@
   position: relative;
   top: 0;
   padding: 1em;
+  &__logo{
+    height: 5em;
+  }
   &__title{
     font-size: 2em;
     color: #ffffff;

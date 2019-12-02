@@ -1,5 +1,16 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["tabs-tabs-module"],{
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/components/logo/logo.component.html":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/components/logo/logo.component.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<img src=\"/assets/images/logo_v1.png\" alt=\"Logo Gardener\">"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/tabs/tabs.page.html":
 /*!***************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/tabs/tabs.page.html ***!
@@ -7,7 +18,92 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-tabs>\n\n  <ion-tab-bar slot=\"bottom\">\n    <ion-tab-button tab=\"tab1\">\n      <ion-icon name=\"flash\"></ion-icon>\n      <ion-label>Tab One</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab2\">\n      <ion-icon name=\"apps\"></ion-icon>\n      <ion-label>Tab Two</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab3\">\n      <ion-icon name=\"send\"></ion-icon>\n      <ion-label>Tab Three</ion-label>\n    </ion-tab-button>\n  </ion-tab-bar>\n\n</ion-tabs>\n"
+module.exports = "<ion-tabs>\n\n  <ion-tab-bar slot=\"bottom\">\n    <ion-tab-button tab=\"tab1\">\n      <ion-icon name=\"bluetooth\"></ion-icon>\n      <ion-label>Conectar</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button [hidden]=\"true\" tab=\"tab2\">\n      <ion-icon name=\"apps\"></ion-icon>\n      <ion-label>Tab Two</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button [hidden]=\"true\" tab=\"tab3\">\n      <ion-icon name=\"send\"></ion-icon>\n      <ion-label>Tab Three</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab4\">\n      <ion-icon name=\"person\"></ion-icon>\n      <ion-label>Meu perfil</ion-label>\n    </ion-tab-button>\n  </ion-tab-bar>\n\n</ion-tabs>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/components/components.module.ts":
+/*!************************************************************!*\
+  !*** ./src/app/components/components/components.module.ts ***!
+  \************************************************************/
+/*! exports provided: ComponentsModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentsModule", function() { return ComponentsModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _logo_logo_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../logo/logo.component */ "./src/app/components/logo/logo.component.ts");
+
+
+
+
+var ComponentsModule = /** @class */ (function () {
+    function ComponentsModule() {
+    }
+    ComponentsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: [
+                _logo_logo_component__WEBPACK_IMPORTED_MODULE_3__["LogoComponent"]
+            ],
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]
+            ],
+            schemas: [
+                _angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]
+            ]
+        })
+    ], ComponentsModule);
+    return ComponentsModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/logo/logo.component.scss":
+/*!*****************************************************!*\
+  !*** ./src/app/components/logo/logo.component.scss ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbG9nby9sb2dvLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/components/logo/logo.component.ts":
+/*!***************************************************!*\
+  !*** ./src/app/components/logo/logo.component.ts ***!
+  \***************************************************/
+/*! exports provided: LogoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogoComponent", function() { return LogoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var LogoComponent = /** @class */ (function () {
+    function LogoComponent() {
+    }
+    LogoComponent.prototype.ngOnInit = function () { };
+    LogoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-logo',
+            template: __webpack_require__(/*! raw-loader!./logo.component.html */ "./node_modules/raw-loader/index.js!./src/app/components/logo/logo.component.html"),
+            styles: [__webpack_require__(/*! ./logo.component.scss */ "./src/app/components/logo/logo.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], LogoComponent);
+    return LogoComponent;
+}());
+
+
 
 /***/ }),
 
@@ -31,7 +127,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var routes = [
     {
-        path: '',
+        path: 'dashboard',
         component: _tabs_page__WEBPACK_IMPORTED_MODULE_3__["TabsPage"],
         children: [
             {
@@ -68,15 +164,26 @@ var routes = [
                 ]
             },
             {
+                path: 'tab4',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: function () {
+                            return __webpack_require__.e(/*! import() | tab4-tab4-module */ "tab4-tab4-module").then(__webpack_require__.bind(null, /*! ../tab4/tab4.module */ "./src/app/tab4/tab4.module.ts")).then(function (m) { return m.Tab4PageModule; });
+                        }
+                    }
+                ]
+            },
+            {
                 path: '',
-                redirectTo: '/tabs/tab1',
+                redirectTo: 'dashboard/tab1',
                 pathMatch: 'full'
             }
         ]
     },
     {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: 'dashboard/tab1',
         pathMatch: 'full'
     }
 ];
@@ -113,6 +220,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _tabs_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tabs-routing.module */ "./src/app/tabs/tabs-routing.module.ts");
 /* harmony import */ var _tabs_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tabs.page */ "./src/app/tabs/tabs.page.ts");
+/* harmony import */ var _components_components_components_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/components/components.module */ "./src/app/components/components/components.module.ts");
+
 
 
 
@@ -129,9 +238,15 @@ var TabsPageModule = /** @class */ (function () {
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["IonicModule"],
                 _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
-                _tabs_routing_module__WEBPACK_IMPORTED_MODULE_5__["TabsPageRoutingModule"]
+                _tabs_routing_module__WEBPACK_IMPORTED_MODULE_5__["TabsPageRoutingModule"],
+                _components_components_components_module__WEBPACK_IMPORTED_MODULE_7__["ComponentsModule"]
             ],
-            declarations: [_tabs_page__WEBPACK_IMPORTED_MODULE_6__["TabsPage"]]
+            declarations: [
+                _tabs_page__WEBPACK_IMPORTED_MODULE_6__["TabsPage"]
+            ],
+            schemas: [
+                _angular_core__WEBPACK_IMPORTED_MODULE_2__["CUSTOM_ELEMENTS_SCHEMA"]
+            ]
         })
     ], TabsPageModule);
     return TabsPageModule;

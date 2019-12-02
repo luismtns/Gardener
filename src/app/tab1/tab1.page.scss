@@ -1,4 +1,37 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
+.Conexion{
+  &__title{
+    color: var(--ion-color-primary);
+    font-size: 1.5em;
+    margin: 0 0 2em;
+  }
+}
+
+.Conexion__box{
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.15);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  margin-bottom: 2em;
+  color: var(--ion-color-secondary);
+  .icon-bluetooth{
+    padding: 1em;
+    border-right: 1px solid var(--ion-color-secondary);
+    margin: 0;
+    font-size: 2em;
+  }
+  .icon-card-primary{
+    font-size: 1em;
+    color: var(--ion-color-light);
+    background-color: var(--ion-color-primary-tint);
+    border-radius: 50%;
+    width:2em;
+    height:2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 1em rgba(73,217,104, 0.7);
+  }
 }

@@ -5,21 +5,37 @@
   !*** ./$$_lazy_route_resource lazy namespace object ***!
   \******************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncaught exception popping up in devtools
-	return Promise.resolve().then(function() {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
+var map = {
+	"./login/login.module": [
+		"./src/app/login/login.module.ts",
+		"login-login-module"
+	],
+	"./password-recovery/password-recovery.module": [
+		"./src/app/password-recovery/password-recovery.module.ts",
+		"password-recovery-password-recovery-module"
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(function() {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(id);
 	});
 }
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
+module.exports = webpackAsyncContext;
 
 /***/ }),
 
@@ -458,13 +474,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/auth.guard */ "./src/app/services/auth.guard.ts");
+
 
 
 
 const routes = [
     {
         path: '',
-        loadChildren: () => __webpack_require__.e(/*! import() | tabs-tabs-module */ "tabs-tabs-module").then(__webpack_require__.bind(null, /*! ./tabs/tabs.module */ "./src/app/tabs/tabs.module.ts")).then(m => m.TabsPageModule)
+        loadChildren: () => __webpack_require__.e(/*! import() | tabs-tabs-module */ "tabs-tabs-module").then(__webpack_require__.bind(null, /*! ./tabs/tabs.module */ "./src/app/tabs/tabs.module.ts")).then(m => m.TabsPageModule),
+        canActivate: [_services_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+    },
+    {
+        path: 'login',
+        loadChildren: './login/login.module#LoginPageModule'
+    },
+    {
+        path: 'recuperar-senha',
+        loadChildren: './password-recovery/password-recovery.module#PasswordRecoveryPageModule'
+    },
+    {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -564,8 +596,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/es2015/index.js");
+/* harmony import */ var _services_firebase_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./services/firebase.service */ "./src/app/services/firebase.service.ts");
+/* harmony import */ var ngx_mask_ionic__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ngx-mask-ionic */ "./node_modules/ngx-mask-ionic/fesm2015/ngx-mask-ionic.js");
 
 
 
@@ -574,22 +612,193 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+firebase__WEBPACK_IMPORTED_MODULE_7__["initializeApp"](src_environments_environment__WEBPACK_IMPORTED_MODULE_10__["environment"].firebase);
 
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
+        declarations: [
+            _app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]
+        ],
         entryComponents: [],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"]],
+        imports: [
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
+            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_11__["AngularFireAuthModule"],
+            ngx_mask_ionic__WEBPACK_IMPORTED_MODULE_13__["NgxMaskIonicModule"].forRoot({
+                'dropSpecialCharacters': true
+            })
+        ],
         providers: [
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
+            _services_firebase_service__WEBPACK_IMPORTED_MODULE_12__["FirebaseService"],
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]],
+        schemas: [
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]
+        ]
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/auth.guard.ts":
+/*!****************************************!*\
+  !*** ./src/app/services/auth.guard.ts ***!
+  \****************************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/index.esm.js");
+
+
+
+
+
+let AuthGuard = class AuthGuard {
+    constructor(router) {
+        this.router = router;
+    }
+    canActivate(next, state) {
+        return new Promise((resolve, reject) => {
+            firebase_app__WEBPACK_IMPORTED_MODULE_3__["auth"]().onAuthStateChanged((user) => {
+                if (user) {
+                    console.log('User logged in');
+                    resolve(true);
+                }
+                else {
+                    console.log('User is not logged in');
+                    this.router.navigate(['/login']);
+                    resolve(false);
+                }
+            });
+        });
+    }
+};
+AuthGuard.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+], AuthGuard);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/firebase.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/services/firebase.service.ts ***!
+  \**********************************************/
+/*! exports provided: FirebaseService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirebaseService", function() { return FirebaseService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+let FirebaseService = class FirebaseService {
+    constructor() { }
+    registerUser(value) {
+        return new Promise((resolve, reject) => {
+            firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().createUserWithEmailAndPassword(value.email, value.password)
+                .then(res => {
+                firebase_app__WEBPACK_IMPORTED_MODULE_2__["database"]().ref('usuarios').child(res.user.uid).set({
+                    'nome': value.nome,
+                    'telefone': value.telefone.replace('(', '').replace(')', '').replace('-', '').substring(2),
+                    'ddd': value.telefone.replace('(', '').replace(')', '').replace('-', '').substring(0, 2)
+                }).then(res => resolve(res), error => reject(error));
+            }, err => reject(err));
+        });
+    }
+    updateUser(value) {
+        return new Promise((resolve, reject) => {
+            const uid = firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().currentUser.uid;
+            firebase_app__WEBPACK_IMPORTED_MODULE_2__["database"]().ref('usuarios').child(uid).update({
+                'nome': value.nome,
+                'telefone': value.telefone.replace('(', '').replace(')', '').replace('-', '').substring(2),
+                'ddd': value.telefone.replace('(', '').replace(')', '').replace('-', '').substring(0, 2)
+            }, error => {
+                if (error) {
+                    reject(error);
+                }
+                else {
+                    resolve();
+                }
+            });
+        });
+    }
+    loginUser(value) {
+        return new Promise((resolve, reject) => {
+            firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().signInWithEmailAndPassword(value.email, value.password)
+                .then(res => resolve(res), err => reject(err));
+        });
+    }
+    resetPassword(value) {
+        return new Promise((resolve, reject) => {
+            firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().sendPasswordResetEmail(value.email)
+                .then(res => resolve(res), err => reject(err));
+        });
+    }
+    logoutUser() {
+        return new Promise((resolve, reject) => {
+            if (firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().currentUser) {
+                firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().signOut()
+                    .then(() => {
+                    resolve();
+                }).catch((error) => {
+                    reject();
+                });
+            }
+        });
+    }
+    userDetails() {
+        return new Promise((resolve, reject) => {
+            const uid = firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().currentUser.uid;
+            if (uid) {
+                firebase_app__WEBPACK_IMPORTED_MODULE_2__["database"]().ref('usuarios').child(uid).once('value').then((snapshot) => {
+                    resolve(snapshot.val());
+                }).catch((error) => {
+                    reject();
+                });
+            }
+        });
+    }
+};
+FirebaseService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], FirebaseService);
 
 
 
@@ -609,7 +818,17 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const environment = {
-    production: false
+    production: false,
+    firebase: {
+        apiKey: "AIzaSyChNvbLJi-mZgS_XkopwPP502NGHrxEack",
+        authDomain: "gardener-1563f.firebaseapp.com",
+        databaseURL: "https://gardener-1563f.firebaseio.com",
+        projectId: "gardener-1563f",
+        storageBucket: "gardener-1563f.appspot.com",
+        messagingSenderId: "178808083741",
+        appId: "1:178808083741:web:468d3b37eef52047f9bdf4",
+        measurementId: "G-MNF5X0MB1S"
+    }
 };
 /*
  * For easier debugging in development mode, you can import the following file
