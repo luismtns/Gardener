@@ -8,6 +8,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./ladding/ladding.module": [
+		"./src/app/ladding/ladding.module.ts",
+		"ladding-ladding-module"
+	],
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
 		"login-login-module"
@@ -490,14 +494,19 @@ const routes = [
         loadChildren: './login/login.module#LoginPageModule'
     },
     {
-        path: 'recuperar-senha',
+        path: 'ladding',
+        loadChildren: './ladding/ladding.module#LaddingPageModule'
+    },
+    {
+        path: 'ladding',
         loadChildren: './password-recovery/password-recovery.module#PasswordRecoveryPageModule'
     },
     {
         path: '',
         redirectTo: '/dashboard',
         pathMatch: 'full'
-    }
+    },
+    { path: 'ladding', loadChildren: './ladding/ladding.module#LaddingPageModule' }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -734,7 +743,8 @@ let FirebaseService = class FirebaseService {
                 firebase_app__WEBPACK_IMPORTED_MODULE_2__["database"]().ref('usuarios').child(res.user.uid).set({
                     'nome': value.nome,
                     'telefone': value.telefone.replace('(', '').replace(')', '').replace('-', '').substring(2),
-                    'ddd': value.telefone.replace('(', '').replace(')', '').replace('-', '').substring(0, 2)
+                    'ddd': value.telefone.replace('(', '').replace(')', '').replace('-', '').substring(0, 2),
+                    'ladding': true
                 }).then(res => resolve(res), error => reject(error));
             }, err => reject(err));
         });
@@ -746,6 +756,21 @@ let FirebaseService = class FirebaseService {
                 'nome': value.nome,
                 'telefone': value.telefone.replace('(', '').replace(')', '').replace('-', '').substring(2),
                 'ddd': value.telefone.replace('(', '').replace(')', '').replace('-', '').substring(0, 2)
+            }, error => {
+                if (error) {
+                    reject(error);
+                }
+                else {
+                    resolve();
+                }
+            });
+        });
+    }
+    updateLadding(value) {
+        return new Promise((resolve, reject) => {
+            const uid = firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().currentUser.uid;
+            firebase_app__WEBPACK_IMPORTED_MODULE_2__["database"]().ref('usuarios').child(uid).update({
+                'ladding': value,
             }, error => {
                 if (error) {
                     reject(error);
