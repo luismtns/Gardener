@@ -49,10 +49,26 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-firebase": {
+  "cordova-plugin-firebasex": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-firebase@^2.0.5"
+      "id": "cordova-plugin-firebasex"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-androidx": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-androidx"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-androidx-adapter": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-androidx-adapter"
     },
     "is_top_level": true,
     "variables": {}

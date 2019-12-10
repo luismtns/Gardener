@@ -1,39 +1,37 @@
 {
   "project_info": {
-    "project_number": "123",
-    "firebase_url": "https://cordova-plugin-firebase.firebaseio.com",
-    "project_id": "cordova-plugin-firebase",
-    "storage_bucket": "cordova-plugin-firebase.appspot.com"
+    "project_number": "178808083741",
+    "firebase_url": "https://gardener-1563f.firebaseio.com",
+    "project_id": "gardener-1563f",
+    "storage_bucket": "gardener-1563f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123:android:123",
+        "mobilesdk_app_id": "1:178808083741:android:ac2faddec1ad3080f9bdf4",
         "android_client_info": {
-          "package_name": "com.github.cordova_plugin_firebase"
+          "package_name": "com.inter.Gardener"
         }
       },
       "oauth_client": [
         {
-          "client_id": "123.apps.googleusercontent.com",
+          "client_id": "178808083741-f77re4877sfdmv2alm6tgohtisumesap.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "123"
+          "current_key": "AIzaSyAyW7fMCHMA9YSIEjeAIFqa7jBJBnoDRPg"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "178808083741-f77re4877sfdmv2alm6tgohtisumesap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

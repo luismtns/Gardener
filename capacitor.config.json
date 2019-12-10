@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "com.inter.Gardener",
   "appName": "Gardener",
   "bundledWebRuntime": false,
   "npmClient": "npm",

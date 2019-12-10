@@ -29,7 +29,9 @@
     "angularfire2": "^5.2.3",
     "br-mask": "0.0.8",
     "cordova-android": "^8.1.0",
-    "cordova-plugin-firebase": "^2.0.5",
+    "cordova-plugin-androidx": "^1.0.2",
+    "cordova-plugin-androidx-adapter": "^1.1.0",
+    "cordova-plugin-firebasex": "^7.0.1",
     "core-js": "^2.5.4",
     "firebase": "^7.5.0",
     "ngx-mask": "^8.1.6",
@@ -82,7 +84,9 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-firebase": {}
+      "cordova-plugin-firebasex": {},
+      "cordova-plugin-androidx": {},
+      "cordova-plugin-androidx-adapter": {}
     },
     "platforms": [
       "android"

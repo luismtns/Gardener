@@ -9,9 +9,9 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-plugin-firebase.FirebasePlugin",
-      "file": "plugins/cordova-plugin-firebase/www/firebase.js",
-      "pluginId": "cordova-plugin-firebase",
+      "id": "cordova-plugin-firebasex.FirebasePlugin",
+      "file": "plugins/cordova-plugin-firebasex/www/firebase.js",
+      "pluginId": "cordova-plugin-firebasex",
       "clobbers": [
         "FirebasePlugin"
       ]
@@ -50,8 +50,10 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     }
   ];
   module.exports.metadata = {
+    "cordova-plugin-androidx": "1.0.2",
+    "cordova-plugin-androidx-adapter": "1.1.0",
     "cordova-plugin-device": "2.0.2",
-    "cordova-plugin-firebase": "2.0.5",
+    "cordova-plugin-firebasex": "7.0.1",
     "cordova-plugin-ionic-keyboard": "2.2.0",
     "cordova-plugin-ionic-webview": "4.1.3",
     "cordova-plugin-splashscreen": "5.0.2",

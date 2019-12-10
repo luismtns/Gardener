@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class Tab4Page {
   
-  user_info:Object;
+  user_info:any;
 
   register_form: FormGroup;
   error_message: string = '';
