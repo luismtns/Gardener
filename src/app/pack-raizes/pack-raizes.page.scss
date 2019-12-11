@@ -1,0 +1,73 @@
+.Raizes{
+  height: 50vh;
+  background: var(--ion-color-dark) url('/assets/images/background_pages.jpg') no-repeat center top;
+  background-size: cover;
+  &__title{
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2em;
+    color: var(--ion-color-light);
+  }
+  &__box{
+    margin-top: -2em;
+    border-radius: 2em;
+    background-color: var(--ion-color-light);
+    padding: calc(var(--padding)*2);
+    &__title{
+      font-size: 1em;
+      font-weight: normal;
+      margin: 1em 0;
+      color: var(--ion-color-secondary);
+    }
+    p{
+      font-size: 0.8em;
+      color: var(--ion-color-primary);
+    }
+    &--active{
+      p{
+        color: var(--ion-color-secondary);
+      }
+      p.green{
+        color: var(--ion-color-primary);
+      }
+    }
+  }
+  &__imagesbox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img{
+      max-width: 60px;
+    }
+    &__item{
+      text-align: center;
+      span{
+        display: block;
+        width: 60px;
+        height: 60px;
+        background-size: cover !important;
+        margin: 0 auto;
+      }
+      p{
+        color: var(--ion-color-primary);
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.6em;
+        letter-spacing: 0.1em;
+      }
+      .batatas{
+        background: url('/assets/images/batatas.jpg') no-repeat center center;
+      }
+      .cenouras{
+        background: url('/assets/images/cenouras.jpg') no-repeat center center;
+      }
+      .beterrabas{
+        background: url('/assets/images/beterrabas.jpg') no-repeat center center;
+      }
+      .rabanetes{
+        background: url('/assets/images/rabanetes.jpg') no-repeat center center;
+      }
+    }
+  }
+}

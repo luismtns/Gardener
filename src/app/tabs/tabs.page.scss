@@ -1,1 +1,15 @@
-
+.Tabs{
+  height: 5em;
+  &__button{
+    padding: 0.25em;
+    opacity: 0.6;
+    transition: 0.8s ease-out;
+    &.tab-selected{
+      opacity: 1;
+    }
+  }
+}
+.tab-icon{
+  max-width: 2em;
+  padding-bottom: 0.25em;
+}

@@ -51,9 +51,9 @@ export class FirebaseService {
       const uid = firebase.auth().currentUser.uid;
       firebase.database().ref('usuarios').child(uid).update({
         'ladding': value,
-      }, error=>{
-        if(error){
-          reject(error)
+      }, error_update_ladding =>{
+        if(error_update_ladding){
+          reject(error_update_ladding)
         }else{
           resolve();
         }

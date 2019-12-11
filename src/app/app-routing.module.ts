@@ -13,19 +13,16 @@ const routes: Routes = [
     loadChildren: './login/login.module#LoginPageModule' 
   },
   { 
-    path: 'ladding', 
-    loadChildren: './ladding/ladding.module#LaddingPageModule' 
-  },
-  { 
-    path: 'ladding', 
+    path: 'recuperar-senha', 
     loadChildren: './password-recovery/password-recovery.module#PasswordRecoveryPageModule' 
   },
-  {
+  { 
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
   },
-  { path: 'ladding', loadChildren: './ladding/ladding.module#LaddingPageModule' }
+  { path: 'ladding', loadChildren: './ladding/ladding.module#LaddingPageModule' },
+  { path: 'pack-raizes/:active', loadChildren: './pack-raizes/pack-raizes.module#PackRaizesPageModule' }
 ];
 @NgModule({
   imports: [

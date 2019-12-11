@@ -1,1 +1,39 @@
-
+.Pacotes{
+  &__title{
+    font-size: 2em;
+    margin: 0.5em 0 0;
+    color: var(--ion-color-primary);
+    font-weight: bold;
+  }
+  &__subtitle{
+    font-size: 1em;
+    margin: 0 0 2em;
+    color: var(--ion-color-primary);
+    font-weight: normal;
+  }
+  &__box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+    &__image{
+      padding: 16%;
+      margin-right: 1em;
+      border-radius: 0.6em;
+      background-size: cover !important;
+    }
+    &__aside{
+      h3{
+        font-size: 1em;
+        margin: 0 0 0.5em;
+        font-weight: bold;
+        color: var(--ion-color-secondary);
+      }
+      p{
+        font-size: 0.7em;
+        margin: 0 0 0.5em;
+        font-weight: normal;
+      }
+    }
+  }
+}

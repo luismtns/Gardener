@@ -56,3 +56,25 @@
     color:  var(--ion-color-primary);
   }
 }
+.btn-blur{
+  @extend %reset-btn;
+  letter-spacing: 1px;
+  font: var(--ion-font-family), sans-serif;
+  background: var(--ion-color-secondary-contrast);
+  color: var(--ion-color-secondary);
+  font-weight: 400;
+  padding: 12px 15px;
+  width: 100%;
+  display: inline-block;
+  transition: 0.4s ease-out;
+  border-radius: 0.25em;
+  box-shadow: 0 0 0.8em 0.4em rgba(var( --ion-color-secondary-rgb), 0.25);
+  margin: 1.2em 0;
+  &:hover{
+    box-shadow: 0 0 0.4em 0.2em rgba(var( --ion-color-secondary-rgb), 0.50);
+  }
+  &--cancel{
+    color: var(--ion-color-danger);
+    font-weight: bold;
+  }
+}

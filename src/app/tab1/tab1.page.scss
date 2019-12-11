@@ -4,6 +4,18 @@
     font-size: 1.5em;
     margin: 0 0 2em;
   }
+  &__subtitle{
+    color: var(--ion-color-primary);
+    font-size: 1em;
+    margin: 2em 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__loader{
+    margin: 1em;
+  }
 }
 
 .Conexion__box{
@@ -17,10 +29,10 @@
   margin-bottom: 2em;
   color: var(--ion-color-secondary);
   .icon-bluetooth{
-    padding: 1em;
+    padding: 0.6em;
     border-right: 1px solid var(--ion-color-secondary);
     margin: 0;
-    font-size: 2em;
+    font-size: 1.5em;
   }
   .icon-card-primary{
     font-size: 1em;
@@ -33,5 +45,9 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 1em rgba(73,217,104, 0.7);
+    transition: 0.4s ease-out;
+    &.off{
+      opacity: 0;
+    }
   }
 }

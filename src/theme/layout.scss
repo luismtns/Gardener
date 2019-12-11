@@ -3,8 +3,7 @@
   background-size: cover;
   background-position: 0 40%;
   padding: var(--padding);
-  margin: var(--padding);
-  border-radius: var(--padding);
+  margin: 0;
   box-shadow: rgba(46,93,25,0.35) 0px 0px 1em;
   color: var(--ion-color-light);
   display: flex;
@@ -17,6 +16,15 @@
   }
   &__logo{
     max-height: 4em;
+  }
+  &__close{
+    max-width: 2em !important;
+    width: 100%;
+  }
+  &--clean{
+    padding: calc(var(--padding) * 2);
+    background: transparent;
+    box-shadow: none;
   }
 }
 .img-fluid{

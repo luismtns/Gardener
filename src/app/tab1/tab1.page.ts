@@ -10,6 +10,9 @@ import { LoadingController, AlertController } from '@ionic/angular';
 })
 export class Tab1Page {
   user_info:Object;
+  find_bluetooth:boolean = false;
+  search_bluetooth:boolean = false;
+  connected:boolean = false;
 
   constructor(
     private authService: FirebaseService,
@@ -23,18 +26,33 @@ export class Tab1Page {
         this.router.navigate(['/ladding']);
       }
     });
+    
+  }
+
+  ionViewWillEnter() {
+    this.search_bluetooth = false;
+    this.find_bluetooth = false;
+  }
+
+  searchConnect(){
+    this.search_bluetooth = true;
+    this.find_bluetooth = false;
+    setTimeout(() => {
+      this.find_bluetooth = true;
+    }, 4000);
   }
 
   tryConnect(){
     this.presentLoadingWithOptions();
     setTimeout(() => {
-      this.successRegisterAlert()
-    }, 3000);
+      this.successRegisterAlert();
+      this.connected = true;
+    }, 6000);
   }
 
   async presentLoadingWithOptions() {
     const loading = await this.loadingController.create({
-      duration: 3000,
+      duration: 6000,
       message: 'Conectando...',
       translucent: true,
       cssClass: 'custom-class custom-loading'
@@ -46,7 +64,7 @@ export class Tab1Page {
   async successRegisterAlert() {
     const alert = await this.alertController.create({
       header: 'Pareado!',
-      message: 'Seu Gardener - Estufa 01 foi conectado com sucesso e está pronto para uso!',
+      message: 'Seu Gardener - HC-05 foi conectado com sucesso e está pronto para uso!',
       buttons: ['OK']
     });
 
